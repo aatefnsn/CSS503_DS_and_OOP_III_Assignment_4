@@ -1,0 +1,63 @@
+anada@ubuntu:~/Desktop/Assignment_4$ g++ -std=c++14 *.cpp
+main.cpp: In function ‘int main(int, char**)’:
+main.cpp:13:17: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   char * host = "127.0.0.1";
+                 ^~~~~~~~~~~
+main.cpp:14:17: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   char * port = "1027";
+                 ^~~~~~
+main.cpp:17:19: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   char * pathname="File.txt";
+                   ^~~~~~~~~~
+main.cpp:18:14: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   char* mode="r+";
+              ^~~~
+main.cpp:25:10: warning: ISO C++ forbids converting a string constant to ‘char*’ [-Wwrite-strings]
+   buff = "I LOVE CSS503";
+          ^~~~~~~~~~~~~~~
+RFS.cpp: In member function ‘ssize_t RemoteFileSystem::File::read(void*, size_t)’:
+RFS.cpp:164:44: warning: format ‘%s’ expects argument of type ‘char*’, but argument 2 has type ‘void*’ [-Wformat=]
+   printf ("Buf before reading is: %s\n",buf);
+                                            ^
+RFS.cpp:198:47: warning: format ‘%s’ expects argument of type ‘char*’, but argument 2 has type ‘void*’ [-Wformat=]
+   printf ("Buf after reading is now: %s\n",buf);
+                                               ^
+RFS.cpp: In member function ‘ssize_t RemoteFileSystem::File::lseek(off_t, int)’:
+RFS.cpp:283:58: warning: format ‘%d’ expects argument of type ‘int’, but argument 2 has type ‘off_t {aka long int}’ [-Wformat=]
+ printf( "lseek successful %d\n", (response->lseek_result));
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~^
+anada@ubuntu:~/Desktop/Assignment_4$ ./a.out 
+Done creating socket
+sent an open request
+Open Response Received
+File opened r+
+Current Sequnece number 2
+Buf before reading is: 
+sent a reading request
+Reading
+Response Received
+Read bytes are: dlkQJ
+Buf after reading is now: dlkQJ
+Data read are 5
+Current Sequnece number 3
+sent a write request
+Write Response Received
+Data written successfully are 13
+whence is 2
+Current Sequnece number 4
+sent a lseek request
+lseek Response Received
+lseek successful 61
+Current Sequnece number 5
+Buf before reading is: 
+sent a reading request
+Reading
+Response Received
+Read bytes are: BEEP
+Buf after reading is now: BEEP
+Data read are 4
+Current Sequnece number 6
+sent a lseek request
+chmod Response Received
+chmod successful 0
+anada@ubuntu:~/Desktop/Assignment_4$ 

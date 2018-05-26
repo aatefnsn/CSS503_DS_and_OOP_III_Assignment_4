@@ -1,0 +1,94 @@
+anada@ubuntu:~/Desktop/Assignment_4/server$ g++ -std=c++14 *.cpp -O3 -pedantic -Wall
+main.cpp: In constructor ‘Server::Server(short int)’:
+main.cpp:34:9: warning: unused variable ‘sock’ [-Wunused-variable]
+     int sock, length, n;
+         ^~~~
+main.cpp:34:15: warning: unused variable ‘length’ [-Wunused-variable]
+     int sock, length, n;
+               ^~~~~~
+main.cpp:34:23: warning: unused variable ‘n’ [-Wunused-variable]
+     int sock, length, n;
+                       ^
+main.cpp:35:16: warning: unused variable ‘fromlen’ [-Wunused-variable]
+      socklen_t fromlen;
+                ^~~~~~~
+main.cpp:36:25: warning: unused variable ‘server’ [-Wunused-variable]
+      struct sockaddr_in server;
+                         ^~~~~~
+main.cpp: In member function ‘void Server::Run()’:
+main.cpp:72:35: warning: unused variable ‘recv_msg’ [-Wunused-variable]
+       RemoteFileSystem::message * recv_msg= (RemoteFileSystem::message *)malloc(sizeof(struct RemoteFileSystem::message));
+                                   ^~~~~~~~
+anada@ubuntu:~/Desktop/Assignment_4/server$ ls -alhtr
+total 52K
+drwxrwxr-x 4 anada anada 4.0K Jun 15 23:11 ..
+-rw-r--r-- 1 anada anada   66 Jun 15 23:11 File.txt
+-rw-r--r-- 1 anada anada  13K Jun 15 23:45 main.cpp
+drwxr-xr-x 2 anada anada 4.0K Jun 15 23:46 .
+-rwxr-xr-x 1 anada anada  22K Jun 15 23:46 a.out
+anada@ubuntu:~/Desktop/Assignment_4/server$ ./a.out 
+waiting
+Received a Request
+Request Auth Token is: 123456
+Request Action type is: 0
+Request Sequnce Number is: 1
+Open File Request
+File.txt
+r+
+Name: File.txt
+File opened r+, File Descriptor is 4
+response sent
+waiting
+Received a Request
+Request Auth Token is: 123456
+Request Action type is: 1
+Request Sequnce Number is: 2
+read request
+Data read count is: 5
+Resulting Read Buffer is: dlkQJ
+read response sent
+waiting
+Received a Request
+Request Auth Token is: 123456
+Request Action type is: 2
+Request Sequnce Number is: 3
+Write request
+Buffer is: I LOVE CSS503
+Data write count is: 13
+write response sent
+waiting
+Received a Request
+Request Auth Token is: 123456
+Request Action type is: 3
+Request Sequnce Number is: 4
+lseek request
+lseek offset is -5
+lseek whence is 2
+lseek SEEK_END Request
+lseek response sent
+waiting
+Received a Request
+Request Auth Token is: 123456
+Request Action type is: 1
+Request Sequnce Number is: 5
+read request
+Data read count is: 4
+Resulting Read Buffer is: BEEP
+read response sent
+waiting
+Received a Request
+Request Auth Token is: 123456
+Request Action type is: 4
+Request Sequnce Number is: 6
+chmod request
+lseek response sent
+waiting
+^C
+anada@ubuntu:~/Desktop/Assignment_4/server$ ls -alhtr
+total 52K
+-rw-r--r-- 1 anada anada  13K Jun 15 23:45 main.cpp
+drwxr-xr-x 2 anada anada 4.0K Jun 15 23:46 .
+-rwxr-xr-x 1 anada anada  22K Jun 15 23:46 a.out
+drwxrwxr-x 4 anada anada 4.0K Jun 15 23:49 ..
+-rwxrwxrwx 1 anada anada   66 Jun 15 23:49 File.txt
+anada@ubuntu:~/Desktop/Assignment_4/server$ 
